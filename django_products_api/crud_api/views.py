@@ -1,6 +1,6 @@
 from ast import expr_context
 from django.shortcuts import render
-from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView, RetrieveAPIView
 from .serializers import ProductSerializer
 from rest_framework.views import APIView
 from .models import Product
@@ -12,7 +12,7 @@ class ListProductAPIView(ListAPIView):
   queryset = Product.objects.all()
   serializer_class = ProductSerializer
 
-class DetailProductAPIView(ListAPIView):
+class DetailProductAPIView(RetrieveAPIView):
   queryset = Product.objects.all()
   serializer_class = ProductSerializer
 
